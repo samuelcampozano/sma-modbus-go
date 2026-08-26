@@ -223,9 +223,19 @@ Output:
 --- PASS: TestDecodeU64 (0.00s)
 === RUN   TestDecodeOperatingStatus
 --- PASS: TestDecodeOperatingStatus (0.00s)
-ok      solar-api/pkg/smamodbus 0.4s
-ok      solar-api/internal/api  0.3s
+ok      github.com/samuelcampozano/sma-modbus-go/pkg/smamodbus 0.4s
+ok      github.com/samuelcampozano/sma-modbus-go/internal/api  0.3s
 ```
+
+---
+
+## 👤 Author & Maintainer
+
+**Samuel Campozano Lopez**  
+*Software Engineer & Systems Architect*
+
+* 💼 **LinkedIn:** [linkedin.com/in/samuel-campozano-lopez](https://www.linkedin.com/in/samuel-campozano-lopez/?locale=es)
+* 🐙 **GitHub:** [@samuelcampozano](https://github.com/samuelcampozano)
 
 ---
 

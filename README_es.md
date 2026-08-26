@@ -215,6 +215,16 @@ go test -v ./...
 
 ---
 
+## 👤 Autor y Mantenedor
+
+**Samuel Campozano Lopez**  
+*Software Engineer & Systems Architect*
+
+* 💼 **LinkedIn:** [linkedin.com/in/samuel-campozano-lopez](https://www.linkedin.com/in/samuel-campozano-lopez/?locale=es)
+* 🐙 **GitHub:** [@samuelcampozano](https://github.com/samuelcampozano)
+
+---
+
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
