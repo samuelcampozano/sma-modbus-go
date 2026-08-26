@@ -459,7 +459,7 @@
                     <div class="inv-icon">⚡</div>
                     <div>
                         <h3>SMA Sunny Highpower #1</h3>
-                        <p>IP: 192.168.0.100 | S/N: <span id="sn1">--</span></p>
+                        <p>IP: <span id="ip1">--</span> | S/N: <span id="sn1">--</span></p>
                     </div>
                 </div>
                 <div class="status-badge" id="badgeInv1">MODBUS INACTIVO</div>
@@ -504,7 +504,7 @@
                     <div class="inv-icon">⚡</div>
                     <div>
                         <h3>SMA Sunny Highpower #2</h3>
-                        <p>IP: 192.168.0.102 | S/N: <span id="sn2">--</span></p>
+                        <p>IP: <span id="ip2">--</span> | S/N: <span id="sn2">--</span></p>
                     </div>
                 </div>
                 <div class="status-badge" id="badgeInv2">MODBUS INACTIVO</div>
@@ -646,6 +646,7 @@
                     document.getElementById('pL3_1').innerText = `${inv1.p_l3_kw} kW`;
                     document.getElementById('temp1').innerText = inv1.temperature_c;
                     document.getElementById('sn1').innerText = inv1.serial;
+                    if (inv1.ip && document.getElementById('ip1')) document.getElementById('ip1').innerText = inv1.ip;
                     
                     const b1 = document.getElementById('badgeInv1');
                     if (inv1.connected) {
@@ -667,6 +668,7 @@
                     document.getElementById('pL3_2').innerText = `${inv2.p_l3_kw} kW`;
                     document.getElementById('temp2').innerText = inv2.temperature_c;
                     document.getElementById('sn2').innerText = inv2.serial;
+                    if (inv2.ip && document.getElementById('ip2')) document.getElementById('ip2').innerText = inv2.ip;
 
                     const b2 = document.getElementById('badgeInv2');
                     if (inv2.connected) {
