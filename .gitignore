@@ -1,0 +1,33 @@
+# Binaries and executables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+solar_api.exe
+
+# Test binaries
+*.test
+
+# Go workspace and cache
+go.work
+go.work.sum
+.cache/
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# External or unrelated repositories
+grott-master/
+
+# Logs and local artifacts
+*.log
+scratch/
+.system_generated/
