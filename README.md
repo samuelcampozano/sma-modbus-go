@@ -56,6 +56,36 @@
 
 ---
 
+## 🔌 Hardware Setup: Enabling Modbus TCP on SMA Data Manager M (ennexOS)
+
+SMA inverters and Data Managers have Modbus TCP **disabled by default**. Follow these exact steps in the local WebUI to enable communication and obtain your Unit IDs:
+
+### 1. Access the WebUI as Installer
+1. Open your browser and navigate to `https://<DATA_MANAGER_IP>` (e.g., `https://192.168.0.100`).
+2. Accept the self-signed SSL certificate warning in your browser.
+3. Log in with the **Installer** role *(standard "User" accounts lack permission to modify communication interfaces)*.
+
+### 2. Open the Modbus Server Configuration Screen
+* **Direct URL:** Navigate directly to:  
+  `https://<DATA_MANAGER_IP>/webui/Plant:1/configuration/view-device-management-modbus-server`
+* **Or via Navigation Menu:** Go to **Configuration** $\rightarrow$ **Device management** $\rightarrow$ select the **Modbus server** tab.
+
+### 3. Configure the TCP Server & Assign Unit IDs
+1. **Enable the Server:** Toggle **Modbus TCP Server** to **ON / Activated**.
+2. **Port:** Ensure the communication port is set to **`502`**.
+3. **Assignment of unit ID:**
+   * In the *Assignment of unit ID* section, click **Add (+)** or **"Add all"**.
+   * This registers each physical Sunny Highpower inverter as a Modbus slave device and assigns unique **Unit IDs** (typically `10` for Inverter #1, `11` for Inverter #2, and `1` for the aggregated plant totals).
+   * **Note the assigned Unit IDs**, as these are the IDs queried by the client.
+4. **Sensor assignment:** Leave this section empty (*"No data available"*), unless you have external pyranometers or weather stations connected.
+5. Click **Save** to apply the configuration.
+
+> ⚠️ **CRITICAL WARNING — Do NOT touch Grid Management Setpoints:**  
+> In the *Device parameters / System and device control* menu, you may see options like *"External active power setpoint via Modbus (direct seller / electric utility company)"*.  
+> **Leave all of these in `Off`!** Those parameters are for remote grid curtailment, not monitoring. If enabled without a continuous control master transmitting power limits, the inverters may trigger a failsafe and throttle generation down to 0% power.
+
+---
+
 ## 📦 Using as a Go Library (`pkg/smamodbus`)
 
 Install package:

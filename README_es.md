@@ -56,6 +56,36 @@
 
 ---
 
+## 🔌 Configuración de Hardware: Habilitar Modbus TCP en SMA Data Manager M (ennexOS)
+
+Los inversores y concentradores SMA traen el protocolo Modbus TCP **desactivado por defecto de fábrica por seguridad**. Sigue estos pasos exactos en la interfaz WebUI local para habilitar la comunicación y obtener los Unit IDs de tus equipos:
+
+### 1. Acceder a la WebUI como Instalador
+1. Abre tu navegador y accede a `https://<IP_DATA_MANAGER>` (por ejemplo, `https://192.168.0.100`).
+2. Acepta la advertencia del certificado SSL autofirmado en tu navegador.
+3. Inicia sesión obligatoriamente con el rol de **Instalador** *(el perfil de "Usuario" estándar no tiene permisos para configurar interfaces de comunicación)*.
+
+### 2. Abrir la Pantalla de Configuración del Servidor Modbus
+* **Enlace directo en el navegador:**  
+  `https://<IP_DATA_MANAGER>/webui/Plant:1/configuration/view-device-management-modbus-server`
+* **O por el menú de navegación:** Ve a **Configuración** $\rightarrow$ **Gestión de equipos** $\rightarrow$ pestaña **Servidor Modbus**.
+
+### 3. Activar el Servidor TCP y Asignar los Unit IDs
+1. **Activar el Servidor:** Cambia el interruptor **Servidor Modbus TCP** a **Sí / Activado / ON**.
+2. **Puerto:** Confirma que esté configurado en el puerto estándar **`502`**.
+3. **Asignación de Unit ID (Assignment of unit ID):**
+   * En la sección *Asignación de Unit ID*, haz clic en el botón de **Añadir (+)** o **"Añadir todos" (Add all)**.
+   * Esto publicará cada inversor Sunny Highpower físico como esclavo Modbus y le asignará un **Unit ID** único (generalmente `10` para el Inversor #1, `11` para el Inversor #2, y `1` para el total agregado de la planta).
+   * **Anota estos números de Unit ID**, ya que son los que se consultan desde el código.
+4. **Asignación de sensores (Sensor assignment):** Déjalo vacío (*"No data available"*), salvo que tengas piranómetros o estaciones meteorológicas externas conectadas.
+5. Haz clic en **Guardar** (*Save*).
+
+> ⚠️ **ADVERTENCIA CRÍTICA — NO actives las consignas de red:**  
+> En el menú de *Parámetros del equipo / Control de la instalación*, verás opciones como *"External active power setpoint via Modbus (direct seller / electric utility company)"*.  
+> **¡Déjalas todas en `Off`!** Esos parámetros son para limitar o recortar la potencia inyectada a la red por orden de la compañía eléctrica, no para lectura de telemetría. Si los activas sin enviar comandos de consigna continuos, el inversor entra en modo de seguridad y **podría bajar su producción al 0%**.
+
+---
+
 ## 📦 Uso como Librería en Go (`pkg/smamodbus`)
 
 Instalar el paquete:
