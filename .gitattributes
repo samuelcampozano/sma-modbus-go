@@ -1,0 +1,2 @@
+# Treat static frontend assets as vendored so repository is classified as 100% Go
+web/* linguist-vendored=true

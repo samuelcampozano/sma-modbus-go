@@ -110,7 +110,10 @@ func main() {
 # Run tests
 go test -v ./...
 
-# Build binary
+# Run the terminal CLI reader example directly:
+go run ./examples/cli
+
+# Build production service binary
 go build -ldflags="-s -w" -o solar_api.exe ./cmd/solar-api
 
 # Start daemon

@@ -110,6 +110,9 @@ func main() {
 # Ejecutar pruebas unitarias
 go test -v ./...
 
+# Ejecutar el lector rápido en terminal directamente:
+go run ./examples/cli
+
 # Compilar binario de producción
 go build -ldflags="-s -w" -o solar_api.exe ./cmd/solar-api
 

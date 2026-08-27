@@ -24,8 +24,9 @@ go.work.sum
 *~
 .DS_Store
 
-# External or unrelated repositories
+# External or unrelated files
 grott-master/
+*.py
 
 # Logs and local artifacts
 *.log
